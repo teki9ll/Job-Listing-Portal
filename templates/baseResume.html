@@ -1,0 +1,39 @@
+<!-- resume.html -->
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Resume</title>
+	<!-- Include Bootstrap CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+	<style>
+		body {
+			height: 100vh;
+		}
+	</style>
+</head>
+<body>
+	<div class="d-flex justify-content-center align-items-center h-100">
+		<div class="container my-5">
+			<div class="card">
+				<div class="card-header">
+					<h2>Resume</h2>
+				</div>
+				<div class="card-body">
+					<h3>Name: {{candidate.name}}</h3>
+					<p>Age: {{candidate.age}}</p>
+					<p>Education: {{candidate.education}}</p>
+					<p>Skills:{{candidate.skills}}</p>
+					<p>Phone: {{candidate.phone}}</p>
+				</div>
+				<div class="card-footer">
+					<a href="../jdash" class="btn btn-secondary">Back</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- Include Bootstrap JS -->
+	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+</body>
+</html>

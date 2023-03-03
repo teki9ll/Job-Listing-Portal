@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+{% extends "base.html" %}
+
+{% block title %}Job Dashboard{% endblock %}
+
+{% block content %}
+{% if username %}
+<div class="jumbotron">
+    <h1><strong>Welcome to Job Portal - Admin , <span style="font-size: 0.5em;"><a href="../jinput">Click Here</a>  to Post a New Job</span>
+    </strong></h1>
+</div>
+<br>
+<div class="row">
+    <div class="col-md-4">
+        <div class="card">
+            <div class="card-header bg-primary text-white">
+                <strong>Profile</strong>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-4"><strong>Name</strong></div>
+                    <div class="col-8">Admin</div>
+                </div>
+                <div class="row">
+                    <div class="col-4"><strong>Email</strong></div>
+                    <div class="col-8">admin@gmail.com</div>
+                </div>
+                <div class="row">
+                    <div class="col-4"><strong>Phone</strong></div>
+                    <div class="col-8">000-000-0000</div>
+                </div>
+                <div class="row">
+                    <div class="col-4"><strong>Jobs Posted</strong></div>
+                    <div class="col-8">{{total_jobs}}</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <br><br>
+
+    {% if jobs %}
+
+    <h3><br><strong>Posted Jobs :</strong></h3>
+
+    {% for i in jobs %}
+
+    <div class="col-md-6">
+        <br>
+        <div class="card">
+            <div class="card-header">
+                <h5 class="card-title float-left">{{i.heading}}</h5>
+            </div>
+            <div class="card-body">
+                <div class="card-text row">
+                    <div class="col-md-4"><strong>Role</strong></div>
+                    <div class="col-md-8">: {{i.role}}</div>
+                </div>
+                <div class="card-text row">
+                    <div class="col-md-4"><strong>Location</strong></div>
+                    <div class="col-md-8">: {{i.location}}</div>
+                </div>
+                <div class="card-text row">
+                    <div class="col-md-4"><strong>Experience</strong></div>
+                    <div class="col-md-8">: {{i.exp}}</div>
+                </div>
+                <div class="card-text row">
+                    <div class="col-md-4"><strong>Salary</strong></div>
+                    <div class="col-md-8">: {{i.salary}}</div>
+                </div>
+                <br>
+                <button class="btn btn-outline-primary show-more" type="button" data-toggle="collapse"
+                        data-target="#{{i.id2}}"
+                        aria-expanded="false" aria-controls="{{i.id2}}">
+                    Show more
+                </button>
+
+                <br>
+                <br>
+                <div class="collapse" id="{{i.id2}}">
+                    <div class="card card-body">
+                        <div class="table-responsive">
+                            <table class="table table-bordered text-center">
+                                <thead class="bg-primary text-white">
+                                <tr>
+                                    <th>Candidate</th>
+                                    <th>Details</th>
+                                    <th>Approve</th>
+                                    <th>Decline</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                {% for j in i.applied_candidates %}
+                                <tr>
+                                    <td>{{j}}</td>
+                                    <td>
+                                        <form name="form1" method="post" action='../resume/'>
+                                            {% csrf_token %}
+                                            <input type="hidden" name="c_username" value="{{ j }}">
+                                            <button class="btn btn-outline-primary view" type="submit">View</button>
+                                        </form>
+                                    </td>
+                                    <td>
+                                        <form name="form2" method="post" action='../jdash/'>
+                                            {% csrf_token %}
+                                            <input type="hidden" name="app_c_name" value="{{ j }}">
+                                            <input type="hidden" name="app_j_name" value="{{ i.heading }}">
+                                            <button type="submit" class="btn btn-outline-success">Approve</button>
+                                        </form>
+                                    </td>
+                                    <td>
+                                        <form name="form3" method="post" action='../jdash/'>
+                                            {% csrf_token %}
+                                            <input type="hidden" name="dec_c_name" value="{{ j }}">
+                                            <input type="hidden" name="dec_j_name" value="{{ i.heading }}">
+                                            <button type="submit" class="btn btn-outline-danger">Decline</button>
+                                        </form>
+                                    </td>
+                                </tr>
+                                {% endfor %}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {% endfor %}
+    {% else %}
+    <h3 class="card-title"><strong>No Jobs Posted :</strong></h3>
+    {% endif %}
+</div>
+{% else %}
+<h1>Please <a href="../jlogin">Login</a> First</h1>
+{% endif %}
+
+{% endblock %}

@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+{% extends "base.html" %}
+
+{% block title %}Candidate Dashboard{% endblock %}
+
+{% block content %}
+{% if username %}
+<div class="jumbotron">
+    <h1><strong>Welcome to Job Portal - {{candidate.username}}</strong></h1>
+</div>
+<br>
+<div class="row">
+    <div class="col-md-4">
+        <div class="card">
+            <div class="card-header bg-primary text-white">
+                <h5 class="mb-0">Candidate Profile</h5>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-6">
+                        <p class="fw-bold mb-0">Name</p>
+                    </div>
+                    <div class="col-md-6">
+                        <p class="mb-0"> {{ candidate.name }}</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <p class="fw-bold mb-0">Age</p>
+                    </div>
+                    <div class="col-md-6">
+                        <p class="mb-0"> {{ candidate.age }}</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <p class="fw-bold mb-0">Education</p>
+                    </div>
+                    <div class="col-md-6">
+                        <p class="mb-0"> {{ candidate.education }}</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <p class="fw-bold mb-0">Phone</p>
+                    </div>
+                    <div class="col-md-6">
+                        <p class="mb-0"> {{ candidate.phone }}</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <p class="fw-bold mb-0">Skills</p>
+                    </div>
+                    <div class="col-md-6">
+                        <p class="mb-0"> {{ candidate.skills }}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <br>
+        <div class="card">
+            <div class="card-header bg-primary text-white">
+                <h5 class="mb-0">Recently Applied Jobs</h5>
+            </div>
+            {% if applied_jobs %}
+            <div class="d-flex justify-content-center">
+                <table class="table table-striped">
+                    <thead>
+                    <tr>
+                        <th class="text-center">Job</th>
+                        <th class="text-center">Status</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for i in applied_jobs %}
+                    <tr>
+                        {% for j in i %}
+                        <td class="text-center">{{ j }}</td>
+                        {% endfor %}
+                    </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+
+            {% else %}
+            <br>
+            <h6 class="mb-0" align="center"> Not applied to any Job</h6>
+            <br>
+            {% endif %}
+        </div>
+    </div>
+
+    {% if jobDetails %}
+    <div class="col-md-8">
+        <div class="card-deck">
+            {% if error %}
+            <div class="alert alert-warning" role="alert">
+                {{error}}
+            </div>
+            {% endif%}
+            {% for i in jobDetails %}
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title mb-4">{{i.heading}}</h5>
+                    <div class="row mb-2">
+                        <div class="col-sm-4"><strong>Job Role</strong></div>
+                        <div class="col-sm-8">{{i.role}}</div>
+                    </div>
+                    <div class="row mb-2">
+                        <div class="col-sm-4"><strong>Location</strong></div>
+                        <div class="col-sm-8">{{i.location}}</div>
+                    </div>
+                    <div class="row mb-2">
+                        <div class="col-sm-4"><strong>Experience</strong></div>
+                        <div class="col-sm-8">{{i.exp}}</div>
+                    </div>
+                    <div class="row mb-2">
+                        <div class="col-sm-4"><strong>Skills</strong></div>
+                        <div class="col-sm-8">{{i.skills}}</div>
+                    </div>
+                    <div class="row mb-2">
+                        <div class="col-sm-4"><strong>Salary</strong></div>
+                        <div class="col-sm-8">{{i.salary}}</div>
+                    </div>
+                    <div class="row mb-2">
+                        <div class="col-sm-4"><strong>Posted at</strong></div>
+                        <div class="col-sm-8">{{i.time_posted}}</div>
+                    </div>
+                    <form method="POST">
+                        {% csrf_token %}
+                        <input type="hidden" name="job_id" value="{{ i.heading }}">
+                        <button type="submit" class="btn btn-primary">Apply Now</button>
+                    </form>
+                </div>
+            </div>
+
+            <br>
+            {% endfor %}
+        </div>
+    </div>
+    {% else %}
+    <p>No Jobs Found !</p>
+    {% endif %}
+</div>
+{% else %}
+<h1>Please <a href="../clogin">Login</a> First</h1>
+{% endif %}
+{% endblock %}

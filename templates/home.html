@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+<head>
+    <title>Home</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+
+    <style>
+		.vh-100 {
+			height: 100vh;
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			background-color: #f1f1f1;
+		}
+
+		.card-img-overlay {
+			background-color: rgba(255, 255, 255, 0.8);
+			color: #333333;
+			padding: 30px;
+		}
+
+		.card-img {
+			opacity: 0.5;
+		}
+
+		.gradient-line {
+			height: 3px;
+			background: linear-gradient(to right, #00c6ff, #0072ff);
+			margin: 30px auto;
+			border-radius: 2px;
+			width: 70%;
+		}
+
+		.vertical-line {
+			border-left: 2px solid #f1f1f1;
+			height: 300px;
+			margin: 0 20px;
+		}
+
+		h3.card-title {
+			color: #0072ff;
+			font-weight: bold;
+			text-align: center;
+		}
+
+		ul {
+			list-style-type: none;
+			padding-left: 0;
+			text-align: justify;
+			line-height: 1.5;
+			margin-bottom: 30px;
+		}
+
+		ul li::before {
+			content: "\2022";
+			color: #0072ff;
+			font-weight: bold;
+			display: inline-block;
+			width: 1em;
+			margin-left: -1em;
+		}
+
+		.btn-primary {
+			background-color: #0072ff;
+			border-color: #0072ff;
+			font-weight: bold;
+			text-transform: uppercase;
+			margin-top: 0px;
+			margin-right: 20px;
+		}
+
+		.btn-primary:hover {
+			background-color: #00c6ff;
+			border-color: #00c6ff;
+		}
+
+    </style>
+
+</head>
+
+<body>
+
+<div class="vh-100">
+    <section>
+    <div class="container">
+        <div class="row mx-auto">
+            <div class="col-md-6">
+                <div class="card border-0 rounded-0">
+                    <img src="{% static 'images/findjobs.jpg' %}" class="card-img rounded-0" alt="...">
+                    <div class="card-img-overlay d-flex flex-column align-items-center justify-content-center">
+                        <br>
+                        <h3 class="card-title text-center mb-5"><strong>Apply for Jobs</strong></h3>
+                        <ul class="mb-5">
+                            <li class="mb-3">Looking for a part-time job to help support your studies?</li>
+                            <li class="mb-3">Check out our job board for the latest opportunities for students and
+                                candidates.
+                            </li>
+                            <li class="mb-3">We have a wide range of positions available, from customer service to data
+                                entry, and everything in between.
+                            </li>
+                            <li class="mb-3">Don't miss out on your chance to gain valuable work experience and earn
+                                some extra cash!
+                            </li>
+                        </ul>
+                        <div class="d-flex">
+                            <a href="cinput" class="btn btn-primary">Sign-Up</a>
+                            <a href="clogin" class="btn btn-outline-primary">Login</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="card border-0 rounded-0">
+                    <img src="{% static 'images/listjobs.jpg' %}" class="card-img rounded-0" alt="...">
+                    <div class="card-img-overlay d-flex flex-column align-items-center justify-content-center">
+                        <br>
+                        <h3 class="card-title text-center mb-5"><strong>Enlist a Job</strong></h3>
+                        <ul class="mb-5">
+                            <li class="mb-3">Looking to recruit top talent for your business?</li>
+                            <li class="mb-3">List your jobs on our portal and gain access to a vast pool of qualified
+                                candidates.
+                            </li>
+                            <li class="mb-3">Our platform is tailored to the needs of employers, making it easy to post
+                                and manage job listings, track applicants.
+                            </li>
+                            <li class="mb-3">So why not list your job with us today?</li>
+                        </ul>
+                        <br>
+                        <a href="jlogin" class="btn btn-primary">Login</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </section>
+    <!-- End of List a Job section -->
+    <div class="row">
+        <div class="col-12">
+            <div class="gradient-line"></div>
+        </div>
+    </div>
+</div>
+
+
+<!-- Footer -->
+<footer class="bg-light py-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4" style="text-align: center;">
+                <img src="{% static 'images/logo.png' %}" alt="logo" width="80" height="80">
+                <p class="my-3">© 2023 Project Job Portal</p>
+            </div>
+            <div class="col-md-4">
+                <h5 class="mb-3">Contact Us</h5>
+                <p class="text-muted mb-1">Email: projectjobportal0204@gmail.com</p>
+                <p class="text-muted mb-1">Phone: +91 000 000 0000</p>
+                <p class="text-muted mb-1">Address: Deogiri Campus, Railway Station Road, Aurangabad, Maharashtra 431005</p>
+            </div>
+            <div class="col-md-4">
+                <h5 class="mb-3">Follow Us</h5>
+                <ol class="list-inline">
+                    <li class="list-inline-item">
+                        <a href="https://github.com/teki9ll" class="social-link">
+                            <i class="fab fa-github"></i>
+                        </a>
+                    </li>
+                    <li class="list-inline-item">
+                        <a href="https://www.linkedin.com/in/tejas-solanke/" class="social-link">
+                            <i class="fab fa-linkedin"></i>
+                        </a>
+                    </li>
+                    <li class="list-inline-item">
+                        <a href="https://www.instagram.com/_teki9_/" class="social-link">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                    </li>
+                </ol>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</body>
+</html>
