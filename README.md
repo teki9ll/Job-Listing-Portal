@@ -30,4 +30,4 @@ This application is licensed under the MIT license. See the `LICENSE` file for m
 
 ## Credits
 
-This project was created by [Your Name] and [Collaborator Names], as part of [Course/Project Name].
+This project was created by Tejas Solanke, as a personal project.
