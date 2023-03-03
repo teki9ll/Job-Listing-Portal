@@ -14,8 +14,8 @@ This is a web application that allows companies to post job listings and student
 
 To run this application locally, you need to have Python and MongoDB installed on your machine. Follow these steps:
 
-*** Make sure to install django and pymongo ***
-*** Before starting the following steps , run models.py to get access to the admin portal ***
+-*** Make sure to install django and pymongo ***
+-*** Before starting the following steps , run models.py to get access to the admin portal ***
 
 1. Clone the repository to your local machine.
 2. Install the requirements using `pip install -r requirements.txt`.
