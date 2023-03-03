@@ -16,7 +16,7 @@ To run this application locally, you need to have Python and MongoDB installed o
 
 1. Clone the repository to your local machine.
 2. Install the requirements using `pip install -r requirements.txt`.
-3. Set up a MongoDB instance and update the `DATABASES` configuration in `settings.py` accordingly.
+3. Use pymongo to connect with database in models.py (use your own connection string from MongoDB Atlas)
 4. Run the server using `python manage.py runserver`.
 5. Access the application in your browser at `http://localhost:8000`.
 
